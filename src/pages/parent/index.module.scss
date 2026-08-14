@@ -1,0 +1,169 @@
+@use '@/styles/variables.scss' as *;
+
+.container {
+  min-height: 100vh;
+  padding: 0 $page-padding;
+  background: $color-bg-page;
+}
+
+.header {
+  padding: 32rpx 0;
+}
+
+.headerTitle {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.headerDesc {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  display: block;
+}
+
+.configCard {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: 32rpx;
+  box-shadow: $shadow-card;
+  margin-bottom: 24rpx;
+}
+
+.configTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  margin-bottom: 24rpx;
+  display: block;
+}
+
+.configItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  border-bottom: 1px solid $color-divider;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.configLabel {
+  font-size: $font-size-md;
+  color: $color-text-primary;
+  display: block;
+}
+
+.configValue {
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.configBtn {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: $radius-round;
+  background: $color-bg-page;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+  color: $color-text-primary;
+  border: 1px solid $color-border;
+  transition: all $transition-base;
+
+  &:active {
+    background: $color-bg-hover;
+  }
+}
+
+.configValueText {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-medium;
+  color: $color-primary;
+  min-width: 60rpx;
+  text-align: center;
+  display: block;
+}
+
+.toggle {
+  width: 96rpx;
+  height: 48rpx;
+  border-radius: 24rpx;
+  background: $color-text-disabled;
+  position: relative;
+  transition: all $transition-base;
+}
+
+.toggleActive {
+  background: $color-primary;
+}
+
+.toggleDot {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: $radius-round;
+  background: $color-text-white;
+  position: absolute;
+  top: 4rpx;
+  left: 4rpx;
+  transition: all $transition-base;
+  box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.2);
+}
+
+.toggleActive .toggleDot {
+  left: 52rpx;
+}
+
+.infoCard {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: 32rpx;
+  box-shadow: $shadow-card;
+  margin-bottom: 24rpx;
+}
+
+.infoTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  margin-bottom: 16rpx;
+  display: block;
+}
+
+.infoText {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  line-height: 1.6;
+  display: block;
+}
+
+.dangerBtn {
+  width: 100%;
+  height: $button-height-md;
+  background: $color-bg-card;
+  border: 2rpx solid $color-error;
+  border-radius: $radius-button;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32rpx;
+  transition: all $transition-base;
+
+  &:active {
+    background: #FFEBEE;
+  }
+}
+
+.dangerBtnText {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-medium;
+  color: $color-error;
+}

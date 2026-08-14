@@ -1,0 +1,57 @@
+@use '@/styles/variables.scss' as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32rpx 24rpx;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+  position: relative;
+  transition: all $transition-base;
+}
+
+.unlocked {
+  background: linear-gradient(135deg, #FFF8E1, #FFECB3);
+}
+
+.locked {
+  background: $color-bg-card;
+  opacity: 0.6;
+}
+
+.iconWrap {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: $radius-round;
+  background: rgba(255, 255, 255, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16rpx;
+}
+
+.icon {
+  font-size: 44rpx;
+}
+
+.name {
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  margin-bottom: 8rpx;
+  text-align: center;
+}
+
+.desc {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  text-align: center;
+}
+
+.lockIcon {
+  position: absolute;
+  top: 16rpx;
+  right: 16rpx;
+  font-size: 28rpx;
+}

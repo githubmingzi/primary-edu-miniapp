@@ -1,0 +1,106 @@
+@use '@/styles/variables.scss' as *;
+
+.card {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: 32rpx;
+  box-shadow: $shadow-card;
+}
+
+.questionArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 32rpx;
+  margin-bottom: 32rpx;
+  border-bottom: 1px solid $color-divider;
+}
+
+.questionImage {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: $radius-md;
+  margin-bottom: 24rpx;
+}
+
+.questionText {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  text-align: center;
+  line-height: $line-height-tight;
+}
+
+.optionsArea {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  padding: 24rpx 28rpx;
+  border-radius: $radius-md;
+  border: 2rpx solid $color-border;
+  background: $color-bg-card;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+.selected {
+  border-color: $color-primary;
+  background: #E3F2FD;
+}
+
+.correct {
+  border-color: $color-success;
+  background: #E8F5E9;
+}
+
+.wrong {
+  border-color: $color-error;
+  background: #FFEBEE;
+}
+
+.optionMarker {
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: $radius-round;
+  background: $color-bg-page;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.optionText {
+  font-size: $font-size-lg;
+  color: $color-text-primary;
+  flex: 1;
+}
+
+.correct .optionMarker {
+  background: $color-success;
+  .markerText { color: $color-text-white; }
+}
+
+.wrong .optionMarker {
+  background: $color-error;
+  .markerText { color: $color-text-white; }
+}
+
+.selected .optionMarker {
+  background: $color-primary;
+  .markerText { color: $color-text-white; }
+}
+
+.markerText {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}

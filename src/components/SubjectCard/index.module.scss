@@ -1,0 +1,79 @@
+@use '@/styles/variables.scss' as *;
+
+.card {
+  display: flex;
+  align-items: center;
+  padding: 32rpx;
+  border-radius: $radius-lg;
+  margin-bottom: 24rpx;
+  box-shadow: $shadow-card;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+  }
+}
+
+.iconWrap {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: $radius-round;
+  background: rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 24rpx;
+  flex-shrink: 0;
+}
+
+.icon {
+  font-size: 52rpx;
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  display: block;
+  margin-bottom: 4rpx;
+}
+
+.subtitle {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  display: block;
+  margin-bottom: 16rpx;
+}
+
+.progressWrap {
+  display: flex;
+  align-items: center;
+}
+
+.progressTrack {
+  flex: 1;
+  height: 12rpx;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 6rpx;
+  overflow: hidden;
+  margin-right: 16rpx;
+}
+
+.progressBar {
+  height: 100%;
+  background: $color-text-white;
+  border-radius: 6rpx;
+  transition: width $transition-slow;
+}
+
+.progressText {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  white-space: nowrap;
+}

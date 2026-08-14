@@ -1,0 +1,144 @@
+@use '@/styles/variables.scss' as *;
+
+.container {
+  min-height: 100vh;
+  padding: 0 $page-padding;
+  background: $color-bg-page;
+}
+
+.header {
+  text-align: center;
+  padding: 48rpx 0 32rpx;
+}
+
+.timer {
+  font-size: 72rpx;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.score {
+  font-size: $font-size-lg;
+  color: $color-text-secondary;
+  display: block;
+}
+
+.questionArea {
+  margin-bottom: 32rpx;
+}
+
+.feedback {
+  text-align: center;
+  padding: 24rpx;
+  border-radius: $radius-md;
+  margin-bottom: 24rpx;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-medium;
+}
+
+.feedbackCorrect {
+  background: #E8F5E9;
+  color: $color-success;
+}
+
+.feedbackWrong {
+  background: #FFEBEE;
+  color: $color-error;
+}
+
+.resultArea {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: 48rpx 32rpx;
+  box-shadow: $shadow-card;
+  text-align: center;
+  margin-top: 48rpx;
+}
+
+.resultIcon {
+  font-size: 96rpx;
+  margin-bottom: 24rpx;
+  display: block;
+}
+
+.resultTitle {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  margin-bottom: 24rpx;
+  display: block;
+}
+
+.resultValue {
+  font-size: 64rpx;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.resultLabel {
+  font-size: $font-size-md;
+  color: $color-text-tertiary;
+  margin-bottom: 32rpx;
+  display: block;
+}
+
+.resultBtns {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.nextBtn {
+  width: 100%;
+  height: $button-height-md;
+  background: linear-gradient(135deg, $color-primary, $color-primary-light);
+  border-radius: $radius-button;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.nextBtnText {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-medium;
+  color: $color-text-white;
+}
+
+.startScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+}
+
+.startIcon {
+  font-size: 120rpx;
+  margin-bottom: 32rpx;
+}
+
+.startTitle {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  margin-bottom: 16rpx;
+  display: block;
+}
+
+.startDesc {
+  font-size: $font-size-md;
+  color: $color-text-tertiary;
+  margin-bottom: 48rpx;
+  text-align: center;
+  display: block;
+}

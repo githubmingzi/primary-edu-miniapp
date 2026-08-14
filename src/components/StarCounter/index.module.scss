@@ -1,0 +1,36 @@
+@use '@/styles/variables.scss' as *;
+
+.counter {
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(135deg, #FFF3E0, #FFE0B2);
+  border-radius: $radius-round;
+  padding: 8rpx 20rpx;
+}
+
+.starIcon {
+  font-size: 28rpx;
+  margin-right: 8rpx;
+}
+
+.count {
+  font-weight: $font-weight-semibold;
+  color: #E65100;
+}
+
+.small {
+  padding: 4rpx 16rpx;
+  .starIcon { font-size: 22rpx; }
+  .count { font-size: $font-size-sm; }
+}
+
+.medium {
+  .starIcon { font-size: 28rpx; }
+  .count { font-size: $font-size-lg; }
+}
+
+.large {
+  padding: 12rpx 28rpx;
+  .starIcon { font-size: 36rpx; }
+  .count { font-size: $font-size-xxl; }
+}

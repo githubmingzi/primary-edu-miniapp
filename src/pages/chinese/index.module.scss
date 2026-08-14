@@ -1,0 +1,72 @@
+@use '@/styles/variables.scss' as *;
+
+.container {
+  min-height: 100vh;
+  padding: 0 $page-padding;
+  background: linear-gradient(180deg, #FCE4EC 0%, $color-bg-page 100%);
+}
+
+.header {
+  padding: 32rpx 0 24rpx;
+}
+
+.headerTitle {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.headerDesc {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  display: block;
+}
+
+.cardGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+  margin-bottom: 32rpx;
+}
+
+.card {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: 40rpx 32rpx;
+  box-shadow: $shadow-card;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+.cardIcon {
+  font-size: 80rpx;
+  margin-bottom: 16rpx;
+}
+
+.cardTitle {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.cardDesc {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  text-align: center;
+  display: block;
+  margin-bottom: 16rpx;
+}
+
+.cardProgress {
+  width: 100%;
+}

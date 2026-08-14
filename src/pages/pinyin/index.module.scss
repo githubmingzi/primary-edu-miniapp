@@ -1,0 +1,199 @@
+@use '@/styles/variables.scss' as *;
+
+.container {
+  min-height: 100vh;
+  padding: 0 $page-padding;
+  background: $color-bg-page;
+}
+
+.tabBar {
+  display: flex;
+  background: $color-bg-card;
+  border-radius: $radius-md;
+  margin: 24rpx 0;
+  overflow: hidden;
+  box-shadow: $shadow-card;
+}
+
+.tab {
+  flex: 1;
+  padding: 20rpx 0;
+  text-align: center;
+  font-size: $font-size-md;
+  color: $color-text-tertiary;
+  transition: all $transition-base;
+  position: relative;
+}
+
+.tabActive {
+  color: $color-primary;
+  font-weight: $font-weight-medium;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 48rpx;
+    height: 4rpx;
+    background: $color-primary;
+    border-radius: 2rpx;
+  }
+}
+
+.modeSwitch {
+  display: flex;
+  justify-content: center;
+  gap: 24rpx;
+  margin-bottom: 24rpx;
+}
+
+.modeBtn {
+  padding: 12rpx 32rpx;
+  border-radius: $radius-round;
+  font-size: $font-size-md;
+  background: $color-bg-card;
+  color: $color-text-secondary;
+  border: 2rpx solid $color-border;
+  transition: all $transition-base;
+}
+
+.modeBtnActive {
+  background: $color-primary;
+  color: $color-text-white;
+  border-color: $color-primary;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16rpx;
+  margin-bottom: 32rpx;
+}
+
+.pinyinCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24rpx 16rpx;
+  background: $color-bg-card;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.pinyinText {
+  font-size: 36rpx;
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.pinyinExample {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  display: block;
+}
+
+.practiceArea {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: 32rpx;
+  box-shadow: $shadow-card;
+  margin-bottom: 32rpx;
+}
+
+.practiceTitle {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  text-align: center;
+  margin-bottom: 32rpx;
+  display: block;
+}
+
+.practiceOptions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16rpx;
+}
+
+.practiceOption {
+  padding: 28rpx;
+  border-radius: $radius-md;
+  border: 2rpx solid $color-border;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.optionCorrect {
+  border-color: $color-success;
+  background: #E8F5E9;
+  color: $color-success;
+}
+
+.optionWrong {
+  border-color: $color-error;
+  background: #FFEBEE;
+  color: $color-error;
+}
+
+.optionSelected {
+  border-color: $color-primary;
+  background: #E3F2FD;
+}
+
+.feedback {
+  text-align: center;
+  margin-top: 24rpx;
+  padding: 20rpx;
+  border-radius: $radius-md;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-medium;
+}
+
+.feedbackCorrect {
+  background: #E8F5E9;
+  color: $color-success;
+}
+
+.feedbackWrong {
+  background: #FFEBEE;
+  color: $color-error;
+}
+
+.nextBtn {
+  width: 100%;
+  height: $button-height-md;
+  background: linear-gradient(135deg, $color-primary, $color-primary-light);
+  border-radius: $radius-button;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24rpx;
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.nextBtnText {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-medium;
+  color: $color-text-white;
+}

@@ -1,0 +1,28 @@
+@use '@/styles/variables.scss' as *;
+
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.track {
+  flex: 1;
+  height: 16rpx;
+  background: $color-divider;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  background: linear-gradient(90deg, $color-primary-light, $color-primary);
+  border-radius: 8rpx;
+  transition: width $transition-slow;
+}
+
+.label {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  margin-left: 16rpx;
+  white-space: nowrap;
+}

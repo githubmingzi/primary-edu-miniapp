@@ -1,0 +1,164 @@
+@use '@/styles/variables.scss' as *;
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0 $page-padding;
+  background: linear-gradient(180deg, #E8F5E9 0%, $color-bg-page 100%);
+}
+
+.scrollArea {
+  flex: 1;
+  min-height: 0;
+}
+
+.header {
+  padding: 32rpx 0 24rpx;
+}
+
+.headerTitle {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.headerDesc {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  display: block;
+}
+
+.categoryScroll {
+  flex-shrink: 0;
+  margin-bottom: 24rpx;
+  width: 100%;
+}
+
+.categoryGrid {
+  display: inline-flex;
+  gap: 16rpx;
+  padding: 4rpx;
+}
+
+.categoryCard {
+  flex-shrink: 0;
+  background: $color-bg-card;
+  border-radius: $radius-round;
+  padding: 14rpx 24rpx;
+  box-shadow: $shadow-card;
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.categoryIcon {
+  font-size: 30rpx;
+}
+
+.categoryName {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+}
+
+.categoryCount {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.categoryCardActive {
+  border: 2rpx solid $color-secondary;
+  background: #F1F8E9;
+}
+
+.wordList {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+  margin-bottom: 32rpx;
+}
+
+.wordCard {
+  background: $color-bg-card;
+  border-radius: $radius-md;
+  padding: 24rpx;
+  box-shadow: $shadow-card;
+  display: flex;
+  align-items: center;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+.wordEmoji {
+  width: 120rpx;
+  height: 120rpx;
+  background: #FFF8E1;
+  border-radius: $radius-sm;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 100rpx;
+}
+
+.wordInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.wordText {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: 4rpx;
+  display: block;
+}
+
+.wordMeaning {
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+  margin-bottom: 4rpx;
+  display: block;
+}
+
+.wordCategory {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  display: block;
+}
+
+.practiceBtn {
+  width: 100%;
+  height: $button-height-md;
+  background: linear-gradient(135deg, $color-secondary, #A5D6A7);
+  border-radius: $radius-button;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32rpx;
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.practiceBtnText {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-medium;
+  color: $color-text-white;
+}
