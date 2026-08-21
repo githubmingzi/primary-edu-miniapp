@@ -52,10 +52,10 @@ const MinePage: React.FC = () => {
   return (
     <View className={styles.container}>
       <View className={styles.profileCard}>
-        <View className={styles.avatar}>👶</View>
+        <View className={styles.avatar}>🧒</View>
         <View className={styles.profileInfo}>
           <Text className={styles.profileName}>小学霸</Text>
-          <Text className={styles.profileDesc}>今天也要加油哦！</Text>
+          <Text className={styles.profileDesc}>二年级，今天也要加油哦！</Text>
         </View>
         <StarCounter count={userData.stars} />
       </View>

@@ -1,0 +1,232 @@
+@use '@/styles/variables.scss' as *;
+
+.container {
+  min-height: 100vh;
+  padding: 0 $page-padding;
+  background: linear-gradient(180deg, #FFF8E1 0%, $color-bg-page 100%);
+}
+
+.header {
+  padding: 32rpx 0 8rpx;
+}
+
+.headerTitle {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  display: block;
+}
+
+.headerDesc {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  margin-top: 8rpx;
+  display: block;
+}
+
+.modeSwitch {
+  display: flex;
+  justify-content: center;
+  gap: 24rpx;
+  padding: 24rpx 0;
+}
+
+.modeBtn {
+  padding: 12rpx 40rpx;
+  border-radius: $radius-round;
+  font-size: $font-size-md;
+  background: $color-bg-card;
+  color: $color-text-secondary;
+  border: 2rpx solid $color-border;
+  transition: all $transition-base;
+}
+
+.modeBtnActive {
+  background: $color-accent;
+  color: $color-text-white;
+  border-color: $color-accent;
+}
+
+.learnCard {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: 48rpx 32rpx;
+  box-shadow: $shadow-card;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.learnEmoji {
+  width: 200rpx;
+  height: 200rpx;
+  background: #FFF8E1;
+  border-radius: $radius-md;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 110rpx;
+  margin-bottom: 16rpx;
+}
+
+.learnTitle {
+  font-size: 52rpx;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.learnAuthor {
+  font-size: $font-size-md;
+  color: $color-text-tertiary;
+  margin-bottom: 32rpx;
+  display: block;
+}
+
+.learnContent {
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+.learnLine {
+  display: block;
+  font-size: 40rpx;
+  color: $color-text-secondary;
+  line-height: $line-height-loose;
+  letter-spacing: 4rpx;
+}
+
+.navButtons {
+  display: flex;
+  gap: 16rpx;
+  margin-top: 32rpx;
+  width: 100%;
+}
+
+.navBtn {
+  flex: 1;
+  height: $button-height-md;
+  background: linear-gradient(135deg, $color-accent, #FFA726);
+  border-radius: $radius-button;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.navBtnText {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-medium;
+  color: $color-text-white;
+}
+
+.navBtnSecondary {
+  background: $color-bg-page;
+  border: 2rpx solid $color-border;
+
+  .navBtnText {
+    color: $color-text-secondary;
+  }
+}
+
+.progressHint {
+  text-align: center;
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  margin-bottom: 32rpx;
+  display: block;
+}
+
+.practiceArea {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: 32rpx;
+  box-shadow: $shadow-card;
+  margin-bottom: 32rpx;
+}
+
+.practiceQuestion {
+  text-align: center;
+  font-size: 38rpx;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  margin-bottom: 24rpx;
+  display: block;
+  line-height: $line-height-normal;
+}
+
+.practiceOptions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16rpx;
+}
+
+.practiceOption {
+  padding: 28rpx;
+  border-radius: $radius-md;
+  border: 2rpx solid $color-border;
+  text-align: center;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.optionCorrect {
+  border-color: $color-success;
+  background: #E8F5E9;
+  color: $color-success;
+}
+
+.optionWrong {
+  border-color: $color-error;
+  background: #FFEBEE;
+  color: $color-error;
+}
+
+.feedback {
+  text-align: center;
+  margin-top: 24rpx;
+  padding: 20rpx;
+  border-radius: $radius-md;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-medium;
+}
+
+.feedbackCorrect {
+  background: #E8F5E9;
+  color: $color-success;
+}
+
+.feedbackWrong {
+  background: #FFEBEE;
+  color: $color-error;
+}
+
+.scoreText {
+  text-align: center;
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  margin-top: 16rpx;
+  display: block;
+}
+
+.resultHint {
+  text-align: center;
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+  margin-top: 16rpx;
+  display: block;
+}

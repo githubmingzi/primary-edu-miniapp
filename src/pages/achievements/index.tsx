@@ -28,8 +28,8 @@ const AchievementsPage: React.FC = () => {
     return days;
   };
 
-  const totalCorrect = subjectProgress.chinese.totalCorrect + subjectProgress.math.totalCorrect + subjectProgress.english.totalCorrect;
-  const totalAttempts = subjectProgress.chinese.totalAttempts + subjectProgress.math.totalAttempts + subjectProgress.english.totalAttempts;
+  const totalCorrect = subjectProgress.chinese.totalCorrect + subjectProgress.math.totalCorrect + subjectProgress.english.totalCorrect + subjectProgress.science.totalCorrect;
+  const totalAttempts = subjectProgress.chinese.totalAttempts + subjectProgress.math.totalAttempts + subjectProgress.english.totalAttempts + subjectProgress.science.totalAttempts;
   const accuracy = totalAttempts > 0 ? Math.round((totalCorrect / totalAttempts) * 100) : 0;
 
   return (

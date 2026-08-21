@@ -37,8 +37,8 @@ const CharacterPage: React.FC = () => {
 
   const generatePracticeOptions = (current: CharacterItem) => {
     const others = characterList.filter((c) => c.id !== current.id);
-    const wrong = shuffleArray(others).slice(0, 3).map((c) => c.character);
-    const opts = shuffleArray([current.character, ...wrong]);
+    const wrong = shuffleArray(others).slice(0, 3).map((c) => c.pinyin);
+    const opts = shuffleArray([current.pinyin, ...wrong]);
     setPracticeOptions(opts);
   };
 
@@ -47,7 +47,7 @@ const CharacterPage: React.FC = () => {
     setSelectedAnswer(index);
     setShowResult(true);
 
-    const isCorrect = practiceOptions[index] === practiceChars[practiceQIndex].character;
+    const isCorrect = practiceOptions[index] === practiceChars[practiceQIndex].pinyin;
     if (isCorrect) {
       setCorrectCount((c) => c + 1);
       updateStars(1);
@@ -69,7 +69,7 @@ const CharacterPage: React.FC = () => {
   };
 
   const currentPracticeChar = practiceChars[practiceQIndex];
-  const correctPracticeIndex = currentPracticeChar ? practiceOptions.indexOf(currentPracticeChar.character) : -1;
+  const correctPracticeIndex = currentPracticeChar ? practiceOptions.indexOf(currentPracticeChar.pinyin) : -1;
 
   const renderLearnMode = () => (
     <>
@@ -136,7 +136,7 @@ const CharacterPage: React.FC = () => {
           <View className={styles.practiceEmoji}>
             <Text>{currentPracticeChar.emoji || currentPracticeChar.character}</Text>
           </View>
-          <Text className={styles.practiceHint}>请选出正确的汉字</Text>
+          <Text className={styles.practiceHint}>请选出正确的读音</Text>
         </View>
 
         <View className={styles.practiceOptions}>

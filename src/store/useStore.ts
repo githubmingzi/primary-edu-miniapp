@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { UserData, StudySettings, DailyProgress, SubjectProgress, Medal } from '@/types';
+import { UserData, StudySettings, DailyProgress, SubjectProgress, Medal, Subject } from '@/types';
 import Taro from '@tarojs/taro';
 import dayjs from 'dayjs';
 
@@ -8,6 +8,7 @@ const defaultDailyProgress: DailyProgress = {
   chineseCompleted: 0,
   mathCompleted: 0,
   englishCompleted: 0,
+  scienceCompleted: 0,
   totalCorrect: 0,
   studyMinutes: 0,
 };
@@ -16,6 +17,7 @@ const defaultSubjectProgress: SubjectProgress = {
   chinese: { pinyinProgress: [], characterProgress: [], totalCorrect: 0, totalAttempts: 0 },
   math: { unlockedLevel: 1, totalCorrect: 0, totalAttempts: 0, bestRecord: 0 },
   english: { wordProgress: [], totalCorrect: 0, totalAttempts: 0 },
+  science: { knowledgeProgress: [], totalCorrect: 0, totalAttempts: 0 },
 };
 
 const defaultSettings: StudySettings = {
@@ -29,12 +31,13 @@ interface AppState {
   settings: StudySettings;
   medals: Medal[];
   updateStars: (count: number) => void;
-  addCorrect: (subject: 'chinese' | 'math' | 'english') => void;
-  addAttempt: (subject: 'chinese' | 'math' | 'english') => void;
+  addCorrect: (subject: Subject) => void;
+  addAttempt: (subject: Subject) => void;
   resetDailyProgress: () => void;
   updateSettings: (settings: Partial<StudySettings>) => void;
   unlockMedal: (medalId: string) => void;
   updateMathBestRecord: (score: number) => void;
+  markKnowledgeLearned: (knowledgeId: string) => void;
   loadFromStorage: () => void;
   saveToStorage: () => void;
 }
@@ -45,7 +48,8 @@ const getDefaultMedals = (): Medal[] => [
   { id: 'medal_03', name: '算术小能手', description: '完成100道数学题', icon: '🔢', unlocked: false },
   { id: 'medal_04', name: '英语小天才', description: '完成全部单词学习', icon: '🔤', unlocked: false },
   { id: 'medal_05', name: '全勤小标兵', description: '连续学习7天', icon: '📅', unlocked: false },
-  { id: 'medal_06', name: '三科全优', description: '三门学科均完成基础学习', icon: '🏆', unlocked: false },
+  { id: 'medal_06', name: '四科全优', description: '四门学科均完成基础学习', icon: '🏆', unlocked: false },
+  { id: 'medal_07', name: '科学小博士', description: '完成全部科学知识卡学习', icon: '🔬', unlocked: false },
 ];
 
 export const useStore = create<AppState>((set, get) => ({
@@ -88,12 +92,15 @@ export const useStore = create<AppState>((set, get) => ({
       } else if (subject === 'english') {
         progress.english = { ...progress.english, totalCorrect: progress.english.totalCorrect + 1 };
         daily.englishCompleted += 1;
+      } else if (subject === 'science') {
+        progress.science = { ...progress.science, totalCorrect: progress.science.totalCorrect + 1 };
+        daily.scienceCompleted += 1;
       }
       return { userData: { ...state.userData, subjectProgress: progress, dailyProgress: daily } };
     });
   },
 
-  addAttempt: (subject) => {
+  addAttempt: (subject: Subject) => {
     set((state) => {
       const progress = { ...state.userData.subjectProgress };
       if (subject === 'chinese') {
@@ -102,6 +109,8 @@ export const useStore = create<AppState>((set, get) => ({
         progress.math = { ...progress.math, totalAttempts: progress.math.totalAttempts + 1 };
       } else if (subject === 'english') {
         progress.english = { ...progress.english, totalAttempts: progress.english.totalAttempts + 1 };
+      } else if (subject === 'science') {
+        progress.science = { ...progress.science, totalAttempts: progress.science.totalAttempts + 1 };
       }
       return { userData: { ...state.userData, subjectProgress: progress } };
     });
@@ -140,12 +149,41 @@ export const useStore = create<AppState>((set, get) => ({
     get().saveToStorage();
   },
 
+  markKnowledgeLearned: (knowledgeId) => {
+    set((state) => {
+      const progress = state.userData.subjectProgress.science;
+      if (progress.knowledgeProgress.includes(knowledgeId)) return {};
+      return {
+        userData: {
+          ...state.userData,
+          subjectProgress: {
+            ...state.userData.subjectProgress,
+            science: { ...progress, knowledgeProgress: [...progress.knowledgeProgress, knowledgeId] },
+          },
+        },
+      };
+    });
+    get().saveToStorage();
+  },
+
   loadFromStorage: () => {
     try {
       const stored = Taro.getStorageSync('userData');
       const settingsStored = Taro.getStorageSync('studySettings');
       if (stored) {
-        set((state) => ({ userData: { ...state.userData, ...stored } }));
+        set((state) => ({
+          userData: {
+            ...state.userData,
+            ...stored,
+            // 兼容旧版本数据：缺失的新字段（如 science）用默认值补齐
+            dailyProgress: { ...defaultDailyProgress, ...(stored.dailyProgress || {}) },
+            subjectProgress: {
+              ...defaultSubjectProgress,
+              ...(stored.subjectProgress || {}),
+              science: { ...defaultSubjectProgress.science, ...((stored.subjectProgress && stored.subjectProgress.science) || {}) },
+            },
+          },
+        }));
       }
       if (settingsStored) {
         set((state) => ({ settings: { ...state.settings, ...settingsStored } }));

@@ -46,10 +46,12 @@ const ParentPage: React.FC = () => {
 
   const totalCorrect = userData.subjectProgress.chinese.totalCorrect +
     userData.subjectProgress.math.totalCorrect +
-    userData.subjectProgress.english.totalCorrect;
+    userData.subjectProgress.english.totalCorrect +
+    userData.subjectProgress.science.totalCorrect;
   const totalAttempts = userData.subjectProgress.chinese.totalAttempts +
     userData.subjectProgress.math.totalAttempts +
-    userData.subjectProgress.english.totalAttempts;
+    userData.subjectProgress.english.totalAttempts +
+    userData.subjectProgress.science.totalAttempts;
   const accuracy = totalAttempts > 0 ? Math.round((totalCorrect / totalAttempts) * 100) : 0;
 
   return (

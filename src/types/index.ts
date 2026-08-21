@@ -1,5 +1,5 @@
 // 学科类型
-export type Subject = 'chinese' | 'math' | 'english';
+export type Subject = 'chinese' | 'math' | 'english' | 'science';
 
 // 题目类型
 export type QuestionType = 'choice' | 'match' | 'fill';
@@ -8,9 +8,10 @@ export type QuestionType = 'choice' | 'match' | 'fill';
 export type Difficulty = 1 | 2 | 3;
 
 // 题目分类
-export type ChineseCategory = 'pinyin' | 'character';
-export type MathCategory = 'add_sub';
+export type ChineseCategory = 'pinyin' | 'character' | 'poem';
+export type MathCategory = 'add_sub' | 'mul_div' | 'measure' | 'angle' | 'time' | 'observe';
 export type EnglishCategory = 'word';
+export type ScienceCategory = 'nature' | 'material' | 'magnet' | 'weather' | 'plant' | 'animal' | 'earth';
 
 // 题目选项
 export interface QuestionOption {
@@ -74,6 +75,7 @@ export interface DailyProgress {
   chineseCompleted: number;
   mathCompleted: number;
   englishCompleted: number;
+  scienceCompleted: number;
   totalCorrect: number;
   studyMinutes: number;
 }
@@ -97,6 +99,21 @@ export interface SubjectProgress {
     totalCorrect: number;
     totalAttempts: number;
   };
+  science: {
+    knowledgeProgress: string[];
+    totalCorrect: number;
+    totalAttempts: number;
+  };
+}
+
+// 科学知识卡片数据
+export interface ScienceKnowledge {
+  id: string;
+  title: string;
+  content: string;
+  emoji: string;
+  category: ScienceCategory;
+  imageUrl?: string;
 }
 
 // 勋章

@@ -19,9 +19,9 @@ const MathPage: React.FC = () => {
   };
 
   const levelInfo = [
-    { level: 1, label: '⭐ 简单', desc: '10以内加减法' },
-    { level: 2, label: '⭐⭐ 中等', desc: '20以内加减法' },
-    { level: 3, label: '⭐⭐⭐ 较难', desc: '100以内加减法' },
+    { level: 1, label: '⭐ 基础', desc: '乘法口诀 · 表内除法' },
+    { level: 2, label: '⭐⭐ 中等', desc: '两位数加减 · 认识时间' },
+    { level: 3, label: '⭐⭐⭐ 提高', desc: '长度单位 · 角 · 应用题' },
   ];
 
   const totalCorrect = userData.subjectProgress.math.totalCorrect;
@@ -32,14 +32,14 @@ const MathPage: React.FC = () => {
     <View className={styles.container}>
       <View className={styles.header}>
         <Text className={styles.headerTitle}>🔢 数学学习</Text>
-        <Text className={styles.headerDesc}>加减法练习，培养计算能力</Text>
+        <Text className={styles.headerDesc}>二年级数学 · 郑州小学同步</Text>
       </View>
 
       <View className={styles.cardGrid}>
         <View className={styles.card}>
           <Text className={styles.cardIcon}>🧮</Text>
-          <Text className={styles.cardTitle}>加减法练习</Text>
-          <Text className={styles.cardDesc}>选择难度，开始练习</Text>
+          <Text className={styles.cardTitle}>二年级数学练习</Text>
+          <Text className={styles.cardDesc}>乘法口诀 · 除法 · 加减法 · 时间 · 长度</Text>
           <Text className={styles.cardStats}>
             已答 {totalAttempts} 题 · 正确率 {accuracy}%
           </Text>

@@ -23,6 +23,8 @@ export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
       patterns: [
         // 将本地生成的单词发音音频一并打入构建产物
         { from: 'src/assets/audio/', to: 'dist/assets/audio/' },
+        // tabBar 图标（透明背景 PNG，需随构建产物一起打包）
+        { from: 'src/assets/tabbar/', to: 'dist/assets/tabbar/' },
       ],
       options: {},
     },

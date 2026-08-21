@@ -7,12 +7,13 @@ import styles from './index.module.scss';
 
 const EnglishPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('全部');
-  const categories = ['全部', '颜色', '动物', '水果', '身体', '数字', '日常', '家庭', '学校', '食物', '天气', '动作', '时间', '服饰'];
+  const categories = ['全部', '颜色', '动物', '水果', '身体', '数字', '家庭', '学校', '食物', '天气', '动作', '时间', '服饰', '文具', '星期', '月份', '自然', '职业'];
 
   const getCategoryIcon = (cat: string): string => {
     const icons: Record<string, string> = {
-      '全部': '📚', '颜色': '🎨', '动物': '🐾', '水果': '🍎', '身体': '🧍', '数字': '🔢', '日常': '🏠',
-      '家庭': '👪', '学校': '🏫', '食物': '🍔', '天气': '🌤️', '动作': '🏃', '时间': '⏰', '服饰': '👕',
+      '全部': '📚', '颜色': '🎨', '动物': '🐾', '水果': '🍎', '身体': '🧍', '数字': '🔢', '家庭': '👪', '学校': '🏫',
+      '食物': '🍔', '天气': '🌤️', '动作': '🏃', '时间': '⏰', '服饰': '👕', '文具': '✏️', '星期': '📅', '月份': '📆',
+      '自然': '🌳', '职业': '👨‍⚕️',
     };
     return icons[cat] || '📚';
   };
@@ -25,7 +26,7 @@ const EnglishPage: React.FC = () => {
     <View className={styles.container}>
       <View className={styles.header}>
         <Text className={styles.headerTitle}>🔤 英语学习</Text>
-        <Text className={styles.headerDesc}>按主题分类学习基础单词</Text>
+        <Text className={styles.headerDesc}>二年级英语启蒙 · 按主题分类学单词</Text>
       </View>
 
       <ScrollView scrollX className={styles.categoryScroll} enableFlex>
